@@ -10,7 +10,22 @@ dotenv.config({path:"./models/.env"});
 const app = express();
 const Port = process.env.PORT || 5000;
 app.use(express.json())
-app.use(cors({origin:'https://task-manager-frontend-two-rose.vercel.app',
+const allowedOrigins = [
+    "https://task-manager-frontend-6ni7cu1zi.vercel.app",
+    "https://task-manager-frontend-two-rose.vercel.app"
+  ];
+
+app.use(cors({
+    origin: function (origin,callback){
+        if(!origin || allowedOrigins.includes(origin)){
+            callback(null, true)
+        }
+        else{
+            callback(new console.error('new cors not allowed')
+            );
+        }
+        
+    },
     credentials:true
 }))
 
