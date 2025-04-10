@@ -11,6 +11,7 @@ const app = express();
 const Port = process.env.PORT || 5000;
 app.use(express.json())
 const allowedOrigins = [
+    "http://localhost:5173",
     "https://task-manager-frontend-6ni7cu1zi.vercel.app",
     "https://task-manager-frontend-two-rose.vercel.app"
   ];
