@@ -10,7 +10,7 @@ dotenv.config({path:"./models/.env"});
 const app = express();
 const Port = process.env.PORT || 5000;
 app.use(express.json())
-app.use(cors({origin:"*"}))
+app.use(cors({origin:'https://task-manager-frontend-two-rose.vercel.app'}))
 
 // Mongoose Connection
 await mongoose.connect(process.env.MONGO_URI).then(() => {
